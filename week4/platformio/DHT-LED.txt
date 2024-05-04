@@ -1,0 +1,49 @@
+
+#include <Arduino.h>
+#include "DHT.h"
+
+#define DHTPIN 4
+#define DHTTYPE DHT11
+#define LED_RED 23
+#define LED_BLUE 22
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println(F("DHTxx test"));
+  dht.begin();
+  pinMode(LED_RED, OUTPUT);
+  pinMode(LED_BLUE, OUTPUT);
+}
+
+void loop() {
+  delay(2000);
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
+
+  Serial.print("Humidity: ");
+  Serial.print(h);
+  Serial.print("% Temperature: ");
+  Serial.print(t);
+  Serial.print("*C ");
+  Serial.println();;
+  if (h > 45) {
+     digitalWrite(LED_RED, HIGH);
+     Serial.println("Humidity: high");
+     }
+     else
+     {
+     digitalWrite(LED_RED, LOW);
+     Serial.println("Humidity: low");
+     }
+  if (t < 30) {
+     digitalWrite(LED_BLUE, HIGH);
+     Serial.println("Temperature: low");
+     }
+     else
+     {
+     digitalWrite(LED_BLUE, LOW);
+     Serial.println("Temperature: high");
+     }        
+}

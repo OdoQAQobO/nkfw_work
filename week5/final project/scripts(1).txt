@@ -1,0 +1,15 @@
+var mychart = new CanvasJS.Chart("MyChart",{
+    title:{
+        text: "學業成績"
+    },
+    data: [{
+        type: "bar",
+        dataPoints: [
+            { label: '微積分', y: 65},
+            { label: '工程數學', y: 70},
+            { label: '計算機概論', y: 72}
+        ]
+    }]
+});
+console.log("test");
+mychart.render();

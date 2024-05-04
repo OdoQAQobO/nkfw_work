@@ -1,0 +1,18 @@
+在platformio新增project
+
+導入函式庫(共5個)
+Adafruit Unified Sensor
+DHT sensor library
+AsyncTCP-esphome
+ESPAsyncWebServer-esphome
+Arduino_JSON
+
+用右鍵新增資料夾"data"
+
+在data內新增檔案
+
+index.html
+scripts.js
+style.css
+
+#可以下載git以儲存編譯好的code,和他人共同編輯
